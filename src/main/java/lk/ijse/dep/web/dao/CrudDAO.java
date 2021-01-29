@@ -2,16 +2,17 @@ package lk.ijse.dep.web.dao;
 
 import lk.ijse.dep.web.entity.SuperEntity;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
 
-public interface CrudDAO<T extends SuperEntity, K> extends SuperDAO {
+public interface CrudDAO<T extends SuperEntity, K extends Serializable> extends SuperDAO {
 
-    public boolean save(T entity) throws Exception;
+    public void save(T entity) throws Exception;
 
-    public boolean update(T entity) throws Exception;
+    public void update(T entity) throws Exception;
 
-    public boolean delete(K key) throws Exception;
+    public void delete(K key) throws Exception;
 
     public List<T> getAll() throws Exception;
 
